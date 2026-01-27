@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AleoSynth Design System - Coal & Ivory Minimal Aesthetic */
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 96%;
+
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 7%;
+
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 96%;
+
+    --radius: 0.25rem;
+
+    /* Custom AleoSynth tokens */
+    --glow-primary: 0 0% 100% / 0.05;
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 7%) 0%, hsl(0 0% 5%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(0 0% 7%) 100%);
+    
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 0 0% 96%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 96%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/30 rounded-sm;
+  }
+
+  .minimal-card {
+    @apply border border-border/40 bg-transparent;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/60;
+  }
+
+  .hero-gradient {
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, hsl(0 0% 15% / 0.4), transparent);
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(0 0% 100% / 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 100% / 0.015) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Aleo Wallet Adapter Modal Styling */
+.wallet-adapter-modal-wrapper {
+  @apply bg-background/90 backdrop-blur-md;
+}
+
+.wallet-adapter-modal {
+  @apply bg-card border border-border rounded-sm !important;
+  font-family: inherit !important;
+}
+
+.wallet-adapter-modal-title {
+  @apply text-foreground font-medium text-sm uppercase tracking-wider !important;
+}
+
+.wallet-adapter-modal-list {
+  @apply space-y-2 !important;
+}
+
+.wallet-adapter-modal-list li {
+  @apply bg-secondary hover:bg-muted transition-colors rounded-sm !important;
+}
+
+.wallet-adapter-modal-list-more {
+  @apply text-muted-foreground hover:text-foreground !important;
+}
+
+.wallet-adapter-button {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm font-normal text-xs uppercase tracking-wider !important;
+}
+
+.wallet-adapter-button-trigger {
+  @apply bg-secondary border border-border hover:bg-muted text-foreground !important;
+}
+
+.wallet-adapter-dropdown {
+  @apply bg-popover border border-border rounded-sm shadow-lg !important;
+}
+
+.wallet-adapter-dropdown-list {
+  @apply bg-popover !important;
+}
+
+.wallet-adapter-dropdown-list-item {
+  @apply text-foreground hover:bg-muted transition-colors !important;
+}
+
+/* Custom wallet button wrapper styles */
+.wallet-button-wrapper {
+  @apply flex flex-col items-end;
+}
+
+.wallet-button-wrapper button {
+  @apply font-normal !important;
+}
